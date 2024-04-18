@@ -19,7 +19,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('OPT120'),
-        backgroundColor: const Color.fromARGB(255, 36, 160, 237),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
       body: Container(
         padding: const EdgeInsets.all(120.0),
@@ -28,8 +28,8 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 138, 197, 245),
-              Color.fromARGB(255, 14, 68, 115),
+              Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 76, 76, 76),
             ],
           ),
         ),
@@ -115,9 +115,10 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               const SizedBox(height: 10), // Add some spacing
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 130, 197, 252),
+                  backgroundColor: const Color.fromARGB(255, 174, 174, 174),
                    shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
+                 // TextStyle(color: Colors.black),
                 ),
                 ),
                 onPressed: () async {
@@ -141,7 +142,12 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     throw Exception('Failed to create user');
                   }
                 },
-                child: const Text('Cadastrar'),
+
+                child: const Text(
+                  'Cadastrar',
+                  
+                  style: TextStyle(color: Colors.black),
+                ),
                 
               ),
             ],

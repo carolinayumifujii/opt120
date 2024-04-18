@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home',
       routes: {
         '/home': (context) => const HomePage(),
+        '/login': (context) => LoginPage(),
       },
     );
   }
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Color.fromARGB(255, 254, 255, 255),
-              Color.fromARGB(255, 0, 0, 0),
+              Color.fromARGB(255, 76, 76, 76),
             ],
           ),
         ),
@@ -61,7 +62,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 80),
+                      minimumSize: const Size(300, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -80,7 +81,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 80),
+                      minimumSize: const Size(300, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -99,7 +100,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 80),
+                      minimumSize: const Size(300, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -118,7 +119,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 80),
+                      minimumSize: const Size(300, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -128,6 +129,26 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(300, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
+                    ),
+                  ),
+                  
                 ],
               ),
             ],

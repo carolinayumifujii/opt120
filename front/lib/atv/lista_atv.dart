@@ -35,7 +35,7 @@ class _TaskListState extends State<TaskList> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Atividades'),
-        backgroundColor: Color.fromARGB(255, 36, 160, 237), // Cor de fundo da barra de navegação
+        backgroundColor: Color.fromARGB(255, 255, 255, 255), // Cor de fundo da barra de navegação
       ),
       body: ListView.builder(
         itemCount: tasks.length,
@@ -61,7 +61,7 @@ class _TaskListState extends State<TaskList> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.edit, color: Colors.blue), // Define a cor do ícone de edição
+                      icon: Icon(Icons.edit, color: const Color.fromARGB(255, 85, 85, 85)), // Define a cor do ícone de edição
                       onPressed: () {
                         Navigator.push(
                           context,

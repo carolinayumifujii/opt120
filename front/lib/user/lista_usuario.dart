@@ -36,7 +36,7 @@ class _UserListState extends State<UserList> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Usuários'),
-        backgroundColor: const Color.fromARGB(255, 36, 160, 237), // Cor de fundo da barra de navegação
+        backgroundColor: Color.fromARGB(255, 255, 255, 255), // Cor de fundo da barra de navegação
       ),
       body: ListView.builder(
         itemCount: users.length,
@@ -62,7 +62,7 @@ class _UserListState extends State<UserList> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.edit, color: Colors.blue), // Ícone de edição
+                      icon: Icon(Icons.edit, color: const Color.fromARGB(255, 85, 85, 85)), // Ícone de edição
                       onPressed: () {
                         Navigator.push(
                           context,

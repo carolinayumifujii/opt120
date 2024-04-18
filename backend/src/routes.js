@@ -19,7 +19,7 @@ router.get('/showUser', usuariosController.showUser); //
 router.post('/newUser', usuariosController.newUser); // 
 router.put('/updateUser/:id', usuariosController.updateUser); // 
 router.delete('/deleteUser/:id', usuariosController.deleteUser); //
-router.get('/login', usuariosController.checkCredentials);
+router.post('/login', usuariosController.login);
 
 const atividadesController = require('./controllers/atividadesController.js');
 
@@ -33,9 +33,4 @@ router.delete('/deleteActivity/:id', atividadesController.deleteActivity);
 
 module.exports = router;
 
-const app = express(); // Crie uma instância do aplicativo Express
-//app.use(router); // Use o roteador que você definiu
-
-//app.listen(process.env.PORT, () => {
-//    console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
-//});
+const app = express();

@@ -1,32 +1,47 @@
 const database = require('../../models/db');
-//const database = require('../models/db');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
 
 class UsuarioController {
     newUser(req, res){
-      const {nome, email, senha} = req.body
-      database.query('INSERT INTO opt120.usuario (nome, email, senha) VALUES (?, ?, ?)', [nome, email, senha], (err, results) => {
-          if (err) throw err;
-          res.json(results);
-      });
+        const { nome, email, senha } = req.body;
+        const hashedSenha = bcrypt.hashSync(senha, 10); // Hash da senha
+
+        database.query('INSERT INTO opt120.usuario (nome, email, senha) VALUES (?, ?, ?)', [nome, email, hashedSenha], (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
   
-  }
-  // Método para verificar as credenciais do usuário
-  checkCredentials(email, senha, callback) {
-    const query = 'SELECT * FROM opt120.usuario WHERE email = ? AND senha = ?';
-    database.query(query, [email, senha], (error, results) => {
-      if (error) {
-        return callback(error, null);
-      }
-      
-      if (results.length > 0) {
-        // Se encontrar um usuário com o e-mail e senha fornecidos, retorne os dados do usuário
-        return callback(null, results[0]);
-      } else {
-        // Se não encontrar nenhum usuário, retorne null
-        return callback(null, null);
-      }
-    });
-  }
+    }
+    login(req, res) {
+        const email = req.body.email;
+        const senha = req.body.senha;
+
+        database.query('SELECT * FROM opt120.usuario WHERE email = ?', [email], (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).json({ error: 'Erro interno do servidor' });
+                return;
+            }
+
+            if (results.length === 0) {
+                res.status(401).json({ error: 'Credenciais inválidas' });
+                return;
+            }
+
+            const usuario = results[0];
+            const senhaCorreta = bcrypt.compareSync(senha, usuario.senha);
+
+            if (!senhaCorreta) {
+                res.status(401).json({ error: 'Senha inválida' });
+                return;
+            }
+
+            const token = jwt.sign({ id: usuario.id }, 'chave-secreta');
+            res.json({ token });
+        });
+    }
 
 
     showUser(req, res){

@@ -2,14 +2,14 @@ CREATE DATABASE opt120;
 use opt120;
 
 CREATE TABLE usuario (
-    id int AUTO_INCREMENT,
+    id int AUTO_INCREMENT PRIMARY KEY,
     nome varchar(100),
-    email varchar(100),
-    senha varchar(100),
-    PRIMARY KEY(id)
+    email varchar(100) NOT NULL UNIQUE,
+    senha varchar(100) NOT NULL
+    
 );
 
-CREATE TABLE atividade(
+CREATE TABLE atividade (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(100),
     descricao VARCHAR(100),
