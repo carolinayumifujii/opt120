@@ -78,6 +78,9 @@ class _UserListState extends State<UserList> {
                         final response =
                             await http.delete(Uri.parse('http://localhost:3000/deleteUser/${user['id']}'));
                         if (response.statusCode == 200) {
+                          // Exclusão bem-sucedida, recarregar a lista de usuários
+                          await fetchUsers();
+
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -96,6 +99,7 @@ class _UserListState extends State<UserList> {
                             },
                           );
                         } else {
+                          // Exibindo mensagem de erro se a exclusão falhar
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -123,7 +127,6 @@ class _UserListState extends State<UserList> {
           );
         },
       ),
-      
     );
   }
 }

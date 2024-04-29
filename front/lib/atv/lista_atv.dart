@@ -76,6 +76,8 @@ class _TaskListState extends State<TaskList> {
                       onPressed: () async {
                         final response = await http.delete(Uri.parse('http://localhost:3000/deleteActivity/${task['id']}'));
                         if (response.statusCode == 200) {
+                           await fetchTasks();
+
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {

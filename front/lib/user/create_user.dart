@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/atv/lista_atv.dart';
+import 'package:flutter_application_1/main.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -111,9 +113,15 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                   );
 
                   if (response.statusCode == 200) {
+                    
                     // If the server returns a 200 OK response,
                     // then parse the JSON.
                     print('User created successfully');
+                    
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TaskList()),
+                      );
                   } else {
                     // If the server did not return a 200 OK response,
                     // then throw an exception.

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/atv/criar_atv.dart';
-import 'package:flutter_application_1/atv/lista_atv.dart';
-import 'package:flutter_application_1/user/create_user.dart';
-import 'package:flutter_application_1/user/lista_usuario.dart';
-import 'package:flutter_application_1/user/login.dart';
+import 'package:flutter_application_1/user/login_professores.dart';
+import 'package:flutter_application_1/user/login_usuario.dart';
 
 void main() => runApp(MyApp());
 
@@ -54,11 +51,12 @@ class HomePage extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => UserList()),
+                        MaterialPageRoute(builder: (context) => LoginPageProf()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -68,64 +66,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      'Lista de Usuários',
-                      style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TaskList()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    child: const Text(
-                      'Lista de Atividades',
-                      style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CreateUserWidget()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    child: const Text(
-                      'Cadastrar Usuário',
-                      style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CreateTaskWidget()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    child: const Text(
-                      'Cadastrar Atividade',
+                      'Login Professor',
                       style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
                     ),
                   ),
@@ -144,7 +85,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      'Login',
+                      'Login Aluno',
                       style: TextStyle(color: Colors.black), // Alterando a cor do texto para preto
                     ),
                   ),
